@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 export default function Home({ exploreData, cardsData }) {
   return (
-    <div className="">
+    <div className="md:min-w-sm">
       <Head>
         <title>Airbnb - Home</title>
         <link rel="icon" href="/favicon.ico" />
