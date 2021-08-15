@@ -4,7 +4,7 @@ import {
   MenuIcon,
   SearchIcon,
   UserCircleIcon,
-  UserIcon,
+  UsersIcon,
 } from "@heroicons/react/solid";
 import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
@@ -69,18 +69,18 @@ function Header() {
         </div>
       </div>
       {searchInput && (
-          <div className="flex flex-col col-span-3 md:mx-auto">
+          <div className="flex flex-col col-span-3 mx-auto">
             <DateRangePicker
               ranges={[selectionRange]}
               minDate={new Date()}
               rangeColors={["#FD5B61"]}
               onChange={handleSelect}
             />
-            <div className="flex items-center border-b mb-4">
+            <div className="flex items-center  border-b mb-4">
               <h2 className="text-2xl flex-grow font-semibold">
                 Number of Guests
               </h2>
-              <UserIcon className="h-5" />
+              <UsersIcon className="h-5" />
               <input
                 value={noOfGuests}
                 onChange={(e) => setNoOfGuests(e.target.value)}
