@@ -12,42 +12,59 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import { DateRange } from "react-date-range";
 import Fade from "react-reveal/Fade";
+import { useRouter } from "next/dist/client/router";
 
-function Header() {
+function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: "selection",
-    },
-  ]);
+  // const [state, setState] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: null,
+  //     key: "selection",
+  //   },
+  // ]);
+  const router = useRouter();
 
   //console.log(searchInput);
 
-  // const handleSelect = (ranges) => {
-  //   setStartDate(ranges.selection.startDate);
-  //   setEndDate(ranges.selection.endDate);
-  // };
+  const handleSelect = (ranges) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  };
 
   const resetInput = () => {
     setSearchInput("");
   };
 
-  // const selectionRange = {
-  //   startDate: startDate,
-  //   endDate: endDate,
-  //   key: "selection",
-  // };
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuests,
+      },
+    });
+  };
+
+  const selectionRange = {
+    startDate: startDate,
+    endDate: endDate,
+    key: "selection",
+  };
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
       {/* fixed w-full top-0 z-50 grid grid-cols-3 transform duration-300 md:px-10 p-12 bg-transparent */}
       {/* Left */}
-      <div className="relative flex items-center transform duration-300 cursor-pointer my-auto h-10">
+      <div
+        onClick={() => router.push("/")}
+        className="relative flex items-center transform duration-300 cursor-pointer my-auto h-10"
+      >
         <Image
           src="https://links.papareact.com/qd3"
           layout="fill"
@@ -55,6 +72,7 @@ function Header() {
           objectPosition="left"
         />
       </div>
+
       {/* Middle - Search */}
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
         <input
@@ -62,10 +80,11 @@ function Header() {
           onChange={(e) => setSearchInput(e.target.value)}
           className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
         />
         <SearchIcon className="hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2 hover:scale-105 transform transition duration-300 ease-out" />
       </div>
+
       {/* Right */}
       <div className="flex space-x-4 items-center justify-end text-gray-500">
         <p className="hidden md:inline cursor-pointer">Become a host</p>
@@ -85,11 +104,14 @@ function Header() {
             onChange={handleSelect}
           /> */}
           <DateRange
-            editableDateInputs={true}
-            onChange={(item) => setState([item.selection])}
+            // editableDateInputs={true}
+            // onChange={(item) => setState([item.selection])}
+            onChange={handleSelect}
             moveRangeOnFirstSelection={false}
-            ranges={state}
+            // ranges={state}
+            ranges={[selectionRange]}
             rangeColors={["#FD5B61"]}
+            minDate={new Date()}
           />
           <div className="flex items-center  border-b mb-4">
             <h2 className="text-2xl flex-grow font-semibold">
@@ -108,7 +130,9 @@ function Header() {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <button className="flex-grow text-red-400">Search</button>
+            <button onClick={search} className="flex-grow text-red-400">
+              Search
+            </button>
           </div>
         </div>
       )}
