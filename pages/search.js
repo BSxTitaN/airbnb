@@ -41,7 +41,7 @@ function search({ searchResults }) {
           </div>
 
           <div className="felx flex-col">
-            {searchResults.Map(
+            {searchResults.map(
               ({ img, location, title, description, star, price, total }) => (
                 <InfoCard
                   key={img}
