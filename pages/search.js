@@ -9,7 +9,7 @@ import InfoCard from "./components/InfoCard";
 function search({ searchResults }) {
   const router = useRouter();
 
-  //console.log(searchResults);
+  console.log(searchResults);
 
   const { location, startDate, endDate, noOfGuests } = router.query;
 
@@ -17,7 +17,7 @@ function search({ searchResults }) {
   const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
-  //console.log(router.query);
+  console.log(router.query);
 
   return (
     <div>

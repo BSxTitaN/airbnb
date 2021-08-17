@@ -15,7 +15,7 @@
 
 👤 **Harsh Parekh**
 
-- Website: https://dashsantosh.me
+- Website: 
 - Github: [@BSxTitaN](https://github.com/BSxTitaN)
 
 ## Show your support
