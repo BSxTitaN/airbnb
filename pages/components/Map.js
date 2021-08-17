@@ -60,7 +60,7 @@ function Map({ searchResults }) {
               latitude={result.lat}
               longitude={result.long}
             >
-                {result.title}
+              {result.title}
             </Popup>
           ) : (
             false
