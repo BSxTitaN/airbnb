@@ -32,7 +32,7 @@ function Map({ searchResults }) {
       mapStyle="mapbox://styles/titan22903/cksfpe1u402zv17k0movqcwtr"
       mapboxApiAccessToken={process.env.mapbox_key}
       {...viewport}
-      onViewportChange={(viewport) => setViewport(viewport)}
+      onViewportChange={(nextViewport) => setViewport(nextViewport)}
     >
       {searchResults.map((result) => (
         <div key={result.long}>
