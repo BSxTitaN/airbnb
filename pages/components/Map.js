@@ -31,11 +31,11 @@ function Map({ searchResults }) {
   return (
     <ReactMapGL
       mapStyle="mapbox://styles/titan22903/cksfpe1u402zv17k0movqcwtr"
-      mapboxApiAccessToken={process.env.mapbox_key}
+      mapboxApiAccessToken="pk.eyJ1IjoidGl0YW4yMjkwMyIsImEiOiJja3NmcDc2bDAxY2N1MnVvZHA2Ym5iZmowIn0.M6yCTZj38j96sjTexmjD5g"
       {...viewport}
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
     >
-      {searchResults.map(result => (
+      {searchResults.map((result) => (
         <div key={result.long}>
           <Marker
             longitude={result.long}
