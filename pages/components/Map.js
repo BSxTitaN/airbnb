@@ -1,4 +1,4 @@
-import { getCenter } from "geolib";
+import getCenter from "geolib/es/getCenter";
 import { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as React from "react";
