@@ -1,11 +1,11 @@
 //https://airbnb-clone-li3616e8p-konstantindev1.vercel.app/
 import Head from "next/head";
-import Banner from "./components/Banner";
-import Header from "./components/Header";
-import SmallCard from "./components/SmallCard";
-import MediumCard from "./components/MediumCard";
-import LargeCard from "./components/LargeCard";
-import Footer from "./components/Footer";
+import Banner from "../components/Banner";
+import Header from "../components/Header";
+import SmallCard from "../components/SmallCard";
+import MediumCard from "../components/MediumCard";
+import LargeCard from "../components/LargeCard";
+import Footer from "../components/Footer";
 
 export default function Home({ exploreData, cardsData }) {
   return (

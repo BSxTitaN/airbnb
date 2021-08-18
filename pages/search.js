@@ -1,10 +1,10 @@
 //airbnb-ish.vercel.app
 import { useRouter } from "next/router";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Map from "./components/Map";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Map from "../components/Map";
 import { format } from "date-fns";
-import InfoCard from "./components/InfoCard";
+import InfoCard from "../components/InfoCard";
 
 function search({ searchResults }) {
   const router = useRouter();
