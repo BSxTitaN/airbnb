@@ -4,7 +4,7 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import * as React from "react";
 
 function Map({ searchResults }) {
-  const [selectedLocation, setSelectedLocation] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState({});
 
   // Transform the search result into the {lat: 13.3223, lomg: w324.432} object
 
@@ -35,7 +35,7 @@ function Map({ searchResults }) {
       {...viewport}
       onViewportChange={(nextViewport) => setViewport(nextViewport)}
     >
-      {searchResults.map((result) => (
+      {searchResults.map(result => (
         <div key={result.long}>
           <Marker
             longitude={result.long}
