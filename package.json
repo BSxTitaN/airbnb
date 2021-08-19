@@ -8,19 +8,24 @@
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.2",
     "@heroicons/react": "^1.0.3",
+    "@react-hook/media-query": "^1.1.1",
     "date-fns": "^2.23.0",
     "geolib": "^3.3.1",
     "next": "^11.1.0",
+    "nprogress": "^0.2.0",
     "react": "^17.0.2",
     "react-date-range": "^1.3.0",
     "react-dom": "^17.0.2",
+    "react-feather": "^2.0.9",
     "react-map-gl": "^6.1.16",
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.2.0",
+    "styled-components": "^5.3.0",
     "tailwind-scrollbar-hide": "^1.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
+    "eslint": "^7.32.0",
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.4"
   }
